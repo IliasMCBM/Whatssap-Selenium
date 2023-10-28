@@ -28,17 +28,14 @@ for contact_element in contact_elements:
         contact_element.click()
         time.sleep(2)  # Espera 2 segundos para que la estructura de la página cambie
         break  # Detener el bucle cuando se encuentra el contacto
+input("Escanea el código QR y presiona Enter cuando esté listo...")
 wait = WebDriverWait(driver, 10)  # Establece un tiempo máximo de espera de 10 segundos
-input_box = wait.until(EC.presence_of_element_located((By.XPATH, '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[1]/div/div/p/span')))
+input_box = wait.until(EC.presence_of_element_located((By.XPATH, '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[1]/div/div/p')))
 
-# Cantidad de veces que deseas enviar el mensaje "hola"
-veces_a_enviar = 2
+# Escribe el mensaje "hola"
+input_box.send_keys("hola")
 
-for _ in range(veces_a_enviar):
-    # Escribe el mensaje "hola"
-    input_box.send_keys("hola")
-    # Envía el mensaje presionando Enter (opcional)
-    input_box.send_keys("\n")
-    time.sleep(0.5)
+# Envía el mensaje presionando Enter (opcional)
+input_box.send_keys("\n")
 
 input("Dale enter para cerrar la ventana")
