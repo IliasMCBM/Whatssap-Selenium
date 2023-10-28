@@ -10,7 +10,7 @@ driver.get("https://web.whatsapp.com/")
 input("Escanea el código QR y presiona Enter cuando esté listo...")
 
 # Nombre del contacto al que deseas enviar un mensaje
-contact_name = "Nizar"
+contact_name = "Ilias"
 
 # Espera para asegurarse de que WhatsApp Web esté completamente cargado
 time.sleep(5)
