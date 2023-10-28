@@ -1,3 +1,16 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejecutar código Python en GitHub Pages</title>
+</head>
+<body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/selenium/3.141.0/selenium-webdriver.min.js"></script>
+
+  <script>
+    // Importa el código Python
+    const pythonCode = `
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -12,7 +25,7 @@ driver.get("https://web.whatsapp.com/")
 input("Escanea el código QR y presiona Enter cuando esté listo...")
 
 # Nombre del contacto al que deseas enviar un mensaje
-contact_name = "Shadou"
+contact_name = "Pablo"
 
 
 
@@ -28,7 +41,7 @@ for contact_element in contact_elements:
         time.sleep(2)  # Espera 2 segundos para que la estructura de la página cambie
         break  # Detener el bucle cuando se encuentra el contacto
 time.sleep(1.5)
-for i in range(100):
+for i in range(10000):
     wait = WebDriverWait(driver, 10)  # Establece un tiempo máximo de espera de 10 segundos
     input_box = wait.until(EC.presence_of_element_located((By.XPATH, '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[1]/div/div/p')))
     # Escribe el mensaje "hola"
@@ -37,4 +50,18 @@ for i in range(100):
     # Envía el mensaje presionando Enter (opcional)
     input_box.send_keys("\n")
 
-input("Dale enter para cerrar la ventana")
+    // Cierra la ventana del navegador
+    driver.quit()
+    `;
+
+    // Crea el objeto Selenium WebDriver
+    const driver = new webdriver.Chrome();
+
+    // Ejecuta el código Python
+    const result = eval(pythonCode);
+
+    // Imprime el resultado
+    console.log(result);
+  </script>
+</body>
+</html>
