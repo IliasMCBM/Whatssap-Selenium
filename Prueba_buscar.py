@@ -1,17 +1,6 @@
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.select import Select
-from selenium.webdriver.support.wait import WebDriverWait
 import time
-
-'''# Opciones de Chrome para ejecutar en modo headless
-chrome_options = Options()
-chrome_options.add_argument("--headless")
-chrome_options.add_argument('--no-sandbox')
-chrome_options.add_argument('--disable-dev-shm-usage')'''
 
 # Inicializa el navegador y abre WhatsApp Web
 driver = webdriver.Chrome()
@@ -26,8 +15,10 @@ contact_name = "Nizar"
 # Espera para asegurarse de que WhatsApp Web esté completamente cargado
 time.sleep(5)
 
-# Encuentra todos los elementos de contacto
-contact_elements = driver.find_elements_by_css_selector('.lhggkp7q.ln8gz9je.rx9719la')
+# Encuentra todos los elementos de contacto por su clase
+contact_elements = driver.find_elements(By.CLASS_NAME, 'Mk0Bp')
+# Filtra los elementos que tienen la segunda clase " _30scZ"
+contact_elements = [element for element in contact_elements if " _30scZ" in element.get_attribute("class")]
 
 # Recorre los elementos de contacto para encontrar "Nizar"
 for contact_element in contact_elements:
@@ -38,5 +29,7 @@ for contact_element in contact_elements:
 
 # Ahora debería estar abierto el chat con "Nizar"
 
-# Cierra el navegador
-driver.quit()
+# No cerrar la pestaña al finalizar el script
+
+
+
