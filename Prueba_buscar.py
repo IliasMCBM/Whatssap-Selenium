@@ -26,6 +26,4 @@ for contact_element in contact_elements:
         contact_element.click()
         time.sleep(2)  # Espera 2 segundos para que la estructura de la página cambie
         break  # Detener el bucle cuando se encuentra el contacto
-
-
-
+input("Dale enter para cerrar la ventana")
