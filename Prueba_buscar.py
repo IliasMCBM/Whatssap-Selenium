@@ -12,10 +12,9 @@ driver.get("https://web.whatsapp.com/")
 input("Escanea el código QR y presiona Enter cuando esté listo...")
 
 # Nombre del contacto al que deseas enviar un mensaje
-contact_name = "Pablo"
+contact_name = "Ilias"
 
-# Espera para asegurarse de que WhatsApp Web esté completamente cargado
-time.sleep(5)
+
 
 # Encuentra todos los elementos de contacto por su clase
 contact_elements = driver.find_elements(By.CLASS_NAME, 'Mk0Bp')
@@ -28,8 +27,8 @@ for contact_element in contact_elements:
         contact_element.click()
         time.sleep(2)  # Espera 2 segundos para que la estructura de la página cambie
         break  # Detener el bucle cuando se encuentra el contacto
-input("Escanea el código QR y presiona Enter cuando esté listo...")
-for i in range(10):
+time.sleep(1.5)
+for i in range(5):
     wait = WebDriverWait(driver, 10)  # Establece un tiempo máximo de espera de 10 segundos
     input_box = wait.until(EC.presence_of_element_located((By.XPATH, '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[1]/div/div/p')))
     # Escribe el mensaje "hola"
