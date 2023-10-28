@@ -7,7 +7,7 @@ import time
 from selenium.common.exceptions import NoSuchElementException
 # Credenciales de inicio de sesión (ajusta esto)
 usuario = 'iliasamchichou@gmail.com'
-contrasena = 'Ilias2004$'
+contrasena = 'Contrseña'
 precio='34000'
 # Nombre del jugador que quieres fichar (ajusta esto)
 nombre_jugador = 'Casemiro'
