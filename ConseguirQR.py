@@ -33,17 +33,3 @@ print(contact_elements)
 
 
 
-
-#contact_elements = driver.find
-
-
-
-"""
-# Recorre los elementos de contacto para encontrar "Nizar"
-for contact_element in contact_elements:
-    contact_text = contact_element.text
-    if contact_name in contact_text:
-        contact_element.click()
-        break  # Detener el bucle cuando se encuentra el contacto
-
-"""
