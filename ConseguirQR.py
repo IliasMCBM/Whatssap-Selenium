@@ -20,16 +20,10 @@ driver.get("https://web.whatsapp.com/")
 # Escanea el código QR manualmente
 input("Escanea el código QR y presiona Enter cuando esté listo...")
 
-# Nombre del contacto al que deseas enviar un mensaje
-contact_name = "Ilias"
-
 # Espera para asegurarse de que WhatsApp Web esté completamente cargado
 time.sleep(2)
 
-# Encuentra todos los elementos de contacto
-contact_elements = driver.find_element(By.NAME, 'Scan me!')
-print(contact_elements)
+driver.save_screenshot("./screenshot.png")
 
-
-
-
+time.sleep(2)
+driver.quit()
