@@ -16,13 +16,13 @@ driver.get("https://web.whatsapp.com/")
 input("Escanea el código QR y presiona Enter cuando esté listo...")
 
 # Nombre del contacto al que deseas enviar un mensaje
-contact_name = "Nizar"
+contact_name = "Ilias"
 
 # Mensaje que deseas enviar
 message = "Hola, Nizar. Este es un mensaje automatizado."
 
 # Encuentra el cuadro de búsqueda y busca el contacto
-search_box = driver.find_element_by_xpath('//div[@contenteditable="true"][@data-tab="3"]')
+search_box = driver.find_elements(By.CLASS_NAME, '.Mk0Bp._30scZ')[0].get_attribute("innerHTML")
 search_box.send_keys(contact_name)
 time.sleep(2)  # Espera para que se carguen los resultados de búsqueda
 
@@ -36,5 +36,3 @@ input_box.send_keys(message)
 input_box.send_keys("\n")  # Envía el mensaje presionando Enter
 
 # Cierra el navegador
-driver.quit()
-
