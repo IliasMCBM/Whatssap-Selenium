@@ -20,16 +20,12 @@ contact_elements = driver.find_elements(By.CLASS_NAME, 'Mk0Bp')
 # Filtra los elementos que tienen la segunda clase " _30scZ"
 contact_elements = [element for element in contact_elements if " _30scZ" in element.get_attribute("class")]
 
-# Recorre los elementos de contacto para encontrar "Nizar"
 for contact_element in contact_elements:
     contact_text = contact_element.text
     if contact_name in contact_text:
         contact_element.click()
+        time.sleep(2)  # Espera 2 segundos para que la estructura de la página cambie
         break  # Detener el bucle cuando se encuentra el contacto
-
-# Ahora debería estar abierto el chat con "Nizar"
-
-# No cerrar la pestaña al finalizar el script
 
 
 
