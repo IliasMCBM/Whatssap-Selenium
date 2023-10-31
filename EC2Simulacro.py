@@ -8,7 +8,7 @@ from selenium.webdriver.common.keys import Keys
 import schedule
 
 # Configura las opciones de Firefox
-firefox_options = Options()
+firefox_options = webdriver.FirefoxOptions()
 firefox_options.add_argument("--headless")
 firefox_options.add_argument('--no-sandbox')
 firefox_options.add_argument('--disable-dev-shm-usage')
@@ -20,7 +20,8 @@ geckodriver_path = '/snap/bin/geckodriver'
 firefox_service = Service(geckodriver_path)
 
 # Inicia Firefox
-driver = webdriver.FirefoxOptions()
+driver = webdriver.Firefox(service=firefox_service, options=firefox_options)
+
 
 # Abre la página de WhatsApp Web
 driver.get("https://web.whatsapp.com/")
