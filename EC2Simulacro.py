@@ -12,19 +12,29 @@ import schedule
 
 
 
+
+
+# Configura las opciones de Firefox
 firefox_options = Options()
 firefox_binary = "/usr/bin/firefox"
 firefox_options.binary_location = firefox_binary
 
+# Configura el servicio de Geckodriver
 geckodriver_path = '/snap/bin/geckodriver'
-firefox_options.add_argument("--headless")
-firefox_options.add_argument('--no-sandbox')
-firefox_options.add_argument('--disable-dev-shm-usage')
 firefox_service = Service(geckodriver_path)
-driver = webdriver.Firefox(service=firefox_service,options=firefox_options)
+
+# Inicia Firefox
+driver = webdriver.Firefox(service=firefox_service, options=firefox_options)
+
+# Toma una captura de pantalla
 input("Presiona enter para hacer la captura")
 driver.save_screenshot("./screenshot.png")
+
+# Espera a que el usuario esté listo para continuar
 input('Avisa cuando estes listo')
+
+# Cierra Firefox
+driver.quit()
 
 contact_name = str(input("Dame el nombre del contacto"))
 
