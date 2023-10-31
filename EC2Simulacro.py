@@ -20,10 +20,10 @@ driver = webdriver.Firefox(service=firefox_service,options=firefox_options)
 driver.get("https://web.whatsapp.com/")
 input("Presiona enter para hacer la captura")
 driver.save_screenshot("./screenshot.png")
-input("Presiona enter cuando hayas scaneado el codigo")
+time.sleep(30)
 driver.save_screenshot("./screenshot2.png")
 
-contact_name = str( input("Dame el nombre del contacto"))
+contact_name = str(input("Dame el nombre del contacto"))
 
 # Encuentra todos los elementos de contacto por su clase
 contact_elements = driver.find_elements(By.CLASS_NAME, 'Mk0Bp')
