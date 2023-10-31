@@ -13,11 +13,15 @@ import schedule
 
 
 firefox_options = Options()
+firefox_binary = "/usr/bin/firefox"
+firefox_options.binary_location = firefox_binary
+
 geckodriver_path = '/snap/bin/geckodriver'
 firefox_options.add_argument("--headless")
+firefox_options.add_argument('--no-sandbox')
+firefox_options.add_argument('--disable-dev-shm-usage')
 firefox_service = Service(geckodriver_path)
-driver = webdriver.Firefox()
-driver.get("https://web.whatsapp.com/")
+driver = webdriver.Firefox(service=firefox_service,options=firefox_options)
 input("Presiona enter para hacer la captura")
 driver.save_screenshot("./screenshot.png")
 input('Avisa cuando estes listo')
