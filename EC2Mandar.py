@@ -31,7 +31,7 @@ time.sleep(1.5)
 for i in range(10):
     wait = WebDriverWait(driver, 10)  # Establece un tiempo máximo de espera de 10 segundos
     #input_box = wait.until(EC.presence_of_element_located((By.XPATH, '/html/body/div[1]/div/div/div[5]/div/footer/div[1]/div/span[2]/div/div[2]/div[1]/div[2]/div/p/')))
-    input_box = wait.until(EC.presence_of_element_located((By.CLASS_NAME, '3Uuf')))
+    input_box = wait.until(EC.presence_of_element_located((By.CLASS_NAME, '_3Uuf_')))
     # Escribe el mensaje "hola"
     input_box.send_keys("hola")
 
