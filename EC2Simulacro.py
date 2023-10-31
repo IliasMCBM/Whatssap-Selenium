@@ -19,7 +19,7 @@ firefox_service = Service(geckodriver_path)
 driver = webdriver.Firefox(service=firefox_service,options=firefox_options)
 driver.get("https://web.whatsapp.com/")
 input("Presiona enter para hacer la captura")
-driver.save_screenshot("./screenshot.jpg")
+driver.save_screenshot("/home/ubuntu/Whatssap-Selenium/screenshot.png")
 input("Presiona enter cuando hayas scaneado el codigo")
 #driver.save_screenshot("./screenshot2.png")
 
@@ -42,7 +42,7 @@ for contact_element in contact_elements:
         time.sleep(2)  # Espera 2 segundos para que la estructura de la página cambie
         break  # Detener el bucle cuando se encuentra el contacto
 
-driver.save_full_page_screenshot("./screenshot2.jpg")
+driver.save_full_page_screenshot("/home/ubuntu/Whatssap-Selenium/screenshot2.png")
 
 
 
