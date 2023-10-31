@@ -59,7 +59,11 @@ def send_message():
     print("Mensajes enviados")
 print("Esperando a enviar el mensaje")
 # Programa la ejecución del código a las 14:00
-schedule.every().day.at("18:23").do(send_message)
+#schedule.every().day.at("18:23").do(send_message)
+
+send_message()
+
+
 
 # Ejecuta el programa en segundo plano
 while True:
