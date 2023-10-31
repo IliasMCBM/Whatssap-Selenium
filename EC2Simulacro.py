@@ -16,6 +16,9 @@ import schedule
 
 # Configura las opciones de Firefox
 firefox_options = Options()
+firefox_options.add_argument("--headless")
+firefox_options.add_argument('--no-sandbox')
+firefox_options.add_argument('--disable-dev-shm-usage')
 firefox_binary = "/usr/bin/firefox"
 firefox_options.binary_location = firefox_binary
 
