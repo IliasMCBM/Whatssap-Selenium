@@ -43,11 +43,6 @@ for contact_element in contact_elements:
         time.sleep(2)  # Espera 2 segundos para que la estructura de la página cambie
         break  # Detener el bucle cuando se encuentra el contacto
 
-driver.save_full_page_screenshot("/home/ubuntu/Whatssap-Selenium/screenshot2.png")
-
-
-
-
 
 time.sleep(1.5)
 mensaje = input("Dime cual va a ser el mensaje a enviar")
