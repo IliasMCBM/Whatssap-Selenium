@@ -9,7 +9,7 @@ import time
 from selenium.webdriver.common.keys import Keys
 import schedule
 
-
+print('Comenzamos')
 # Configura las opciones de Firefox
 firefox_options = Options()
 firefox_options.add_argument("--headless")
@@ -17,14 +17,14 @@ firefox_options.add_argument('--no-sandbox')
 firefox_options.add_argument('--disable-dev-shm-usage')
 firefox_binary = "/usr/bin/firefox"
 firefox_options.binary_location = firefox_binary
-
+print('Drivers puestos 50%')
 # Configura el servicio de Geckodriver
 geckodriver_path = '/snap/bin/geckodriver'
 firefox_service = Service(geckodriver_path)
 
 # Inicia Firefox
 driver = webdriver.Firefox(service=firefox_service, options=firefox_options)
-
+print(('Drivers 100%'))
 # Toma una captura de pantalla
 input("Presiona enter para hacer la captura")
 driver.save_screenshot("./screenshot.png")
