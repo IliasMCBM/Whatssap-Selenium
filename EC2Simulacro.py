@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.common.keys import Keys
+#from selenium.webdriver.common.keys import Keys
 import time
 import schedule
 firefox_options = Options()
@@ -56,7 +56,7 @@ def send_message():
             input_box.send_keys(x)
 
         # Envía el mensaje presionando Enter (opcional)
-        input_box.send_keys(Keys.RETURN)
+        #input_box.send_keys(Keys.RETURN)
 
     driver.close()
     print("Mensajes enviados")
