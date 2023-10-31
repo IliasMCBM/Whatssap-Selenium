@@ -42,8 +42,9 @@ for contact_element in contact_elements:
         time.sleep(2)  # Espera 2 segundos para que la estructura de la página cambie
         break  # Detener el bucle cuando se encuentra el contacto
 
+driver.save_full_page_screenshot("./screenshot2.jpg")
 
-driver.save_screenshot("./screenshot2.jpg")
+
 
 
 
