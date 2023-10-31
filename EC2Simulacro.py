@@ -6,22 +6,17 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.wait import WebDriverWait
 import time
+from selenium.webdriver.common.keys import Keys
 import schedule
 firefox_options = Options()
 
-firefox_driver_path = '/usr/bin/firefox'
 
-geckodriver_path = '/snap/bin/geckodriver'
-firefox_options.add_argument("--headless")
-firefox_options.add_argument('--no-sandbox')
-firefox_options.add_argument('--disable-dev-shm-usage')
-firefox_service = Service(geckodriver_path)
-driver = webdriver.Firefox(service=firefox_service,options=firefox_options)
+
+driver = webdriver.Firefox()
 driver.get("https://web.whatsapp.com/")
 input("Presiona enter para hacer la captura")
 driver.save_screenshot("./screenshot.png")
-time.sleep(30)
-driver.save_screenshot("./screenshot2.png")
+input('Avisa cuando estes listo')
 
 contact_name = str(input("Dame el nombre del contacto"))
 
@@ -38,22 +33,26 @@ for contact_element in contact_elements:
         break  # Detener el bucle cuando se encuentra el contacto
 time.sleep(1.5)
 mensaje = input("Dime cual va a ser el mensaje a enviar")
-def send_message():
-    for i in range(10):
-        wait = WebDriverWait(driver, 10)  # Establece un tiempo máximo de espera de 10 segundos
-        input_box = wait.until(EC.presence_of_element_located(
-            (By.XPATH, '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[1]/div/div/p')))
-        # Escribe el mensaje "hola"
-        input_box.send_keys(mensaje)
+
+for i in range(10):
+    wait = WebDriverWait(driver, 10)  # Establece un tiempo máximo de espera de 10 segundos
+    input_box = wait.until(EC.presence_of_element_located(
+        (By.CLASS_NAME, '_3Uu1_')))
+
+    # Escribe el mensaje "hola"
+    input_box.send_keys('H')
+    input_box.send_keys('o')
+    input_box.send_keys('l')
+    input_box.send_keys('a')
 
         # Envía el mensaje presionando Enter (opcional)
-        input_box.send_keys("\n")
-
-    driver.close()
-    print("Mensajes enviados")
+    input_box.send_keys(Keys.RETURN)
+input('Cerrar')
+driver.close()
+print("Mensajes enviados")
 
 # Programa la ejecución del código a las 14:00
-schedule.every().day.at("16:30").do(send_message)
+
 
 # Ejecuta el programa en segundo plano
 while True:
