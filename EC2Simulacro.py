@@ -16,7 +16,7 @@ firefox_options = Options()
 geckodriver_path = '/snap/bin/geckodriver'
 firefox_options.add_argument("--headless")
 firefox_service = Service(geckodriver_path)
-driver = webdriver.Firefox(service=firefox_service,options=firefox_options)
+driver = webdriver.Firefox()
 driver.get("https://web.whatsapp.com/")
 input("Presiona enter para hacer la captura")
 driver.save_screenshot("./screenshot.png")
