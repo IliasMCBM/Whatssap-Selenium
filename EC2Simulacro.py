@@ -20,7 +20,7 @@ geckodriver_path = '/snap/bin/geckodriver'
 firefox_service = Service(geckodriver_path)
 
 # Inicia Firefox
-driver = webdriver.Firefox(service=firefox_service, options=firefox_options)
+driver = webdriver.FirefoxOptions()
 
 # Abre la página de WhatsApp Web
 driver.get("https://web.whatsapp.com/")
