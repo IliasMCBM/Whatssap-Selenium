@@ -8,16 +8,20 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 import time
 import schedule
-firefox_options = Options()
-a = 0
-firefox_driver_path = '/usr/bin/firefox'
 
-geckodriver_path = '/snap/bin/geckodriver'
-firefox_options.add_argument("--headless")
-firefox_options.add_argument('--no-sandbox')
-firefox_options.add_argument('--disable-dev-shm-usage')
-firefox_service = Service(geckodriver_path)
-driver = webdriver.Firefox(service=firefox_service,options=firefox_options)
+
+a = 0
+# Configura las opciones de Chrome
+chrome_options = Options()
+chrome_options.add_argument("--headless")
+chrome_options.add_argument('--no-sandbox')
+chrome_options.add_argument('--disable-dev-shm-usage')
+
+# Ruta al controlador ChromeDriver
+chrome_options.binary_location = '/usr/bin/chromium' # Reemplaza con la ruta real
+
+# Inicia Chrome
+driver = webdriver.Chrome(options=chrome_options)
 driver.get("https://web.whatsapp.com/")
 input("Presiona enter para hacer la captura")
 driver.save_screenshot("/home/ubuntu/Whatssap-Selenium/screenshot.png")
