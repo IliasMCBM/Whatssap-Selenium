@@ -56,6 +56,7 @@ def send_message():
         wait = WebDriverWait(driver, 10)  # Establece un tiempo máximo de espera de 10 segundos
         input_box = wait.until(EC.presence_of_element_located(
             (By.XPATH, '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[1]/div/div/p')))
+            (By.XPATH, '/html/body/div[1]/div/div/div[5]/div/footer/div[1]/div/span[2]/div/div[2]/div[1]/div[2]/div[1]/p')))
         # Escribe el mensaje "hola"
         input_box.send_keys(mensaje)
 

@@ -5,7 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 import time
 
 # Inicializa el navegador y abre WhatsApp Web
-driver = webdriver.Chrome()
+driver = webdriver.Firefox()
 driver.get("https://web.whatsapp.com/")
 
 # Escanea el código QR manualmente
@@ -28,9 +28,10 @@ for contact_element in contact_elements:
         time.sleep(2)  # Espera 2 segundos para que la estructura de la página cambie
         break  # Detener el bucle cuando se encuentra el contacto
 time.sleep(1.5)
-for i in range(100):
+for i in range(10):
     wait = WebDriverWait(driver, 10)  # Establece un tiempo máximo de espera de 10 segundos
-    input_box = wait.until(EC.presence_of_element_located((By.XPATH, '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[1]/div/div/p')))
+    #input_box = wait.until(EC.presence_of_element_located((By.XPATH, '/html/body/div[1]/div/div/div[5]/div/footer/div[1]/div/span[2]/div/div[2]/div[1]/div[2]/div/p/')))
+    input_box = wait.until(EC.presence_of_element_located((By.CLASS_NAME, '3Uuf')))
     # Escribe el mensaje "hola"
     input_box.send_keys("hola")
 
@@ -38,3 +39,4 @@ for i in range(100):
     input_box.send_keys("\n")
 
 input("Dale enter para cerrar la ventana")
+
