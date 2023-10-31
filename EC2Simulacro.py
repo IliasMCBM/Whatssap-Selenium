@@ -8,11 +8,15 @@ from selenium.webdriver.support.wait import WebDriverWait
 import time
 from selenium.webdriver.common.keys import Keys
 import schedule
+
+
+
+
 firefox_options = Options()
-
-
-
-driver = webdriver.Firefox()
+geckodriver_path = '/snap/bin/geckodriver'
+firefox_options.add_argument("--headless")
+firefox_service = Service(geckodriver_path)
+driver = webdriver.Firefox(service=firefox_service,options=firefox_options)
 driver.get("https://web.whatsapp.com/")
 input("Presiona enter para hacer la captura")
 driver.save_screenshot("./screenshot.png")
@@ -40,16 +44,15 @@ for i in range(10):
         (By.CLASS_NAME, '_3Uu1_')))
 
     # Escribe el mensaje "hola"
-    input_box.send_keys('H')
-    input_box.send_keys('o')
-    input_box.send_keys('l')
-    input_box.send_keys('a')
+    for x in mensaje:
+        input_box.send_keys(x)
 
-        # Envía el mensaje presionando Enter (opcional)
+# Envía el mensaje presionando Enter (opcional)
     input_box.send_keys(Keys.RETURN)
 input('Cerrar')
 driver.close()
 print("Mensajes enviados")
+
 
 # Programa la ejecución del código a las 14:00
 
