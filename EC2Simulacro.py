@@ -50,8 +50,7 @@ print(f"Esperando para cargar el mensaje a enviar")
 def send_message():
     for i in range(10):
         wait = WebDriverWait(driver, 10)  # Establece un tiempo máximo de espera de 10 segundos
-        input_box = wait.until(EC.presence_of_element_located(
-            (By.CLASS_NAME, '_3Uu1_')))
+        input_box = wait.until(EC.presence_of_element_located((By.CLASS_NAME, '_3Uu1_')))
         # Escribe el mensaje "hola"
         for x in mensaje:
             input_box.send_keys(x)
