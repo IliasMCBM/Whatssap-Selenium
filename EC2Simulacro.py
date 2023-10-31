@@ -19,7 +19,7 @@ firefox_service = Service(geckodriver_path)
 driver = webdriver.Firefox(service=firefox_service,options=firefox_options)
 driver.get("https://web.whatsapp.com/")
 input("Presiona enter para hacer la captura")
-driver.save_screenshot("./screenshot.png")
+driver.save_screenshot("./screenshot.jpg")
 input("Presiona enter cuando hayas scaneado el codigo")
 #driver.save_screenshot("./screenshot2.png")
 
@@ -43,7 +43,7 @@ for contact_element in contact_elements:
         break  # Detener el bucle cuando se encuentra el contacto
 
 
-driver.save_screenshot("./screenshot2.png")
+driver.save_screenshot("./screenshot2.jpg")
 
 
 
