@@ -51,7 +51,7 @@ def send_message():
 
     driver.close()
     print("Mensajes enviados")
-
+print("Esperando a enviar el mensaje")
 # Programa la ejecución del código a las 14:00
 schedule.every().day.at("16:30").do(send_message)
 
