@@ -5,6 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.common.keys import Keys
 import time
 import schedule
 firefox_options = Options()
@@ -55,13 +56,13 @@ def send_message():
     for i in range(10):
         wait = WebDriverWait(driver, 10)  # Establece un tiempo máximo de espera de 10 segundos
         input_box = wait.until(EC.presence_of_element_located(
-            (By.XPATH, '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[1]/div/div/p')))
-            (By.XPATH, '/html/body/div[1]/div/div/div[5]/div/footer/div[1]/div/span[2]/div/div[2]/div[1]/div[2]/div[1]/p')))
+            (By.CLASS_NAME, '_3Uu1_')))
         # Escribe el mensaje "hola"
-        input_box.send_keys(mensaje)
+        for x in mensaje:
+            input_box.send_keys(x)
 
         # Envía el mensaje presionando Enter (opcional)
-        input_box.send_keys("\n")
+        input_box.send_keys(Keys.RETURN)
 
     driver.close()
     print("Mensajes enviados")
