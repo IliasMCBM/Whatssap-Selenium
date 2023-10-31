@@ -8,7 +8,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 import time
 import schedule
 firefox_options = Options()
-
+a = 0
 firefox_driver_path = '/usr/bin/firefox'
 
 geckodriver_path = '/snap/bin/geckodriver'
@@ -26,11 +26,16 @@ driver.save_screenshot("./screenshot2.png")
 contact_name = str( input("Dame el nombre del contacto"))
 
 # Encuentra todos los elementos de contacto por su clase
+print("Conseguir el elemento del contacto")
 contact_elements = driver.find_elements(By.CLASS_NAME, 'Mk0Bp')
 # Filtra los elementos que tienen la segunda clase " _30scZ"
+print("Filtrando los elementos por el contacto")
 contact_elements = [element for element in contact_elements if " _30scZ" in element.get_attribute("class")]
 
+print("Buscle for para buscar el contacto")
 for contact_element in contact_elements:
+    print(f"Iteracion nº {a} de buscar el contacto")
+    a+=1
     contact_text = contact_element.text
     if contact_name in contact_text:
         contact_element.click()
@@ -38,6 +43,7 @@ for contact_element in contact_elements:
         break  # Detener el bucle cuando se encuentra el contacto
 time.sleep(1.5)
 mensaje = input("Dime cual va a ser el mensaje a enviar")
+print(f"Esperando para cargar el mensaje a enviar")
 def send_message():
     for i in range(10):
         wait = WebDriverWait(driver, 10)  # Establece un tiempo máximo de espera de 10 segundos
@@ -53,7 +59,7 @@ def send_message():
     print("Mensajes enviados")
 print("Esperando a enviar el mensaje")
 # Programa la ejecución del código a las 14:00
-schedule.every().day.at("16:30").do(send_message)
+schedule.every().day.at("18:07").do(send_message)
 
 # Ejecuta el programa en segundo plano
 while True:
